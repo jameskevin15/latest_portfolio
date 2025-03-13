@@ -171,7 +171,7 @@ const deleteMany = async (filter = {}, options = {}) => {
 
 const deleteOne = async (filter = {}, data = {}, options = {}) => {
   try {
-    const retval = await collection.updateOne(
+    const retval = await collection.deleteOne(
       filter,
       {
         $unset: data,
