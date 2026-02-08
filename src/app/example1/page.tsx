@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const page = async () => {
   const data = await getData();
-  console.log("DATA ===>", data);
+  console.log("DATA ===>>", data);
   return (
     <div>
       {data.map((datas: any) => (
