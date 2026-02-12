@@ -1,31 +1,34 @@
 /** @type {import('next').NextConfig} */
 const isProd = process.env.NODE_ENV === 'production';
+
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    unoptimized: true, // Disable default image optimization
+    unoptimized: true, // optional, only if you want to skip image optimization
   },
-  assetPrefix: isProd ? '/latest-portfolio' : '',
-  basePath: isProd ? '/latest-portfolio' : '',
-  output: 'export',
+  assetPrefix: isProd && process.env.GITHUB_ACTIONS ? '/latest-portfolio' : '', // only for GitHub Pages
+  basePath: isProd && process.env.GITHUB_ACTIONS ? '/latest-portfolio' : '',     // only for GitHub Pages
+
+  // REMOVE this line: output: 'export', 
+  // so Next.js builds a normal server-rendered app compatible with npm start and Vercel
+
   webpack(config) {
-    // Grab the existing rule that handles SVG imports
     const fileLoaderRule = config.module.rules.find((rule) =>
       rule.test?.test?.(".svg")
     );
 
     config.module.rules.push(
-      // Reapply the existing rule, but only for svg imports ending in ?url
+      // SVG as URL
       {
         ...fileLoaderRule,
         test: /\.svg$/i,
         resourceQuery: /url/, // *.svg?url
       },
-      // Convert all other *.svg imports to React components
+      // SVG as React component
       {
         test: /\.svg$/i,
         issuer: fileLoaderRule.issuer,
-        resourceQuery: { not: [...fileLoaderRule.resourceQuery.not, /url/] }, // exclude if *.svg?url
+        resourceQuery: { not: [...(fileLoaderRule.resourceQuery?.not || []), /url/] },
         use: {
           loader: "@svgr/webpack",
           options: {
@@ -33,11 +36,7 @@ const nextConfig = {
               plugins: [
                 {
                   name: "preset-default",
-                  params: {
-                    overrides: {
-                      removeViewBox: false,
-                    },
-                  },
+                  params: { overrides: { removeViewBox: false } },
                 },
               ],
             },
@@ -46,7 +45,6 @@ const nextConfig = {
       }
     );
 
-    // Modify the file loader rule to ignore *.svg, since we have it handled now.
     fileLoaderRule.exclude = /\.svg$/i;
 
     return config;
