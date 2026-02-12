@@ -132,8 +132,8 @@ export const AboutSection = () => {
       <div className="container">
         <SectionHeader
           eyebrow="About Me"
-          title="A Glimpse Into My World"
-          description="Learn more about who I am, what I do, and what inspires me."
+          title="Front-End Developer & Problem Solver"
+          description="I build scalable, user-friendly web applications with Next.js, React, TypeScript, and modern UI frameworks, and I enjoy turning complex requirements into simple, reliable experiences."
         />
         <div className="mt-20 flex flex-col gap-8">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-5 lg:grid-cols-3">
@@ -141,7 +141,7 @@ export const AboutSection = () => {
               <CardHeader
                 title={"My Reads"}
                 description={
-                  "I'm passionate about anime and manga, finding inspiration and adventure in every story. These worlds are my favorite escape."
+                  "I love anime and manga for their storytelling and world-buildingthe same attention to detail and creativity I bring into the products I build."
                 }
               />
               <div className="w-40 mx-auto mt-2 md:mt-0">
@@ -155,7 +155,7 @@ export const AboutSection = () => {
             <Card className="h-[320px] md:col-span-3 lg:col-span-2">
               <CardHeader
                 title="My Toolbox"
-                description="Eplore the technologies and tools I use to craft exceptional digital experiences."
+                description="Explore the technologies I use daily: from React, Next.js, and TypeScript to Tailwind CSS, Material-UI, Prisma, and MongoDB for production-ready applications."
                 className=""
               />
               <ToolboxItems

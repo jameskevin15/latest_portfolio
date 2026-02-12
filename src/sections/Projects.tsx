@@ -53,36 +53,35 @@ const portfolioProjects = [
     year: "2024",
     title: "My New Portfolio",
     results: [
-      { title: "Enhanced user experience by 40%" },
-      { title: "Improved site speed by 50%" },
-      { title: "Increased mobile traffic by 35%" },
+      { title: "Showcases my latest personal branding and UI direction" },
+      { title: "Built with Next.js, TypeScript, and Tailwind CSS" },
+      { title: "Optimized for responsive layouts and smooth animations" },
     ],
     link: "https://jamili15.github.io/Landing-Page/",
     image: newPortfolio,
   },
-{
-  company: "Rameses Systems Inc",
-  year: "2023-2026",
-  title: "Frontend / Web Developer",
-  results: [
-    { title: "Developed dynamic web systems with workflows and custom editors" },
-    { title: "Enhanced user experience by 40%" },
-    { title: "Improved site speed by 50%" },
-    { title: "Increased mobile traffic by 35%" }
-  ],
-  link: "https://jamili15.github.io/Landing-Page/",
-  image: sysmgmt,
-}
-
+  {
+    company: "Rameses Systems Inc.",
+    year: "2023-2026",
+    title: "Frontend / Web Developer",
+    results: [
+      { title: "Helped modernize internal web platforms with Next.js and TypeScript" },
+      { title: "Implemented drag-and-drop workflows and custom configuration UIs" },
+      { title: "Contributed to queue kiosk and display apps for better user flow" },
+      { title: "Collaborated on REST APIs, database models, and deployments" },
+    ],
+    link: "https://jamili15.github.io/Landing-Page/",
+    image: sysmgmt,
+  },
 ];
 
 export const ProjectsSection = ({ id = "mywork" }: { id?: string }) => {
   return (
     <section className="pb-16 lg:py-24" id={id}>
       <SectionHeader
-        eyebrow="Real-world Results"
-        title="Feaured Projects"
-        description="See how I transformed concepts into engaging digital experience"
+        eyebrow="Selected Work"
+        title="Featured Projects"
+        description="A mix of personal projects and professional work that highlights my front-end skills, UI implementation, and problem-solving."
       />
       <div className="mt-10 md:mt-20 flex flex-col gap-20 container">
         {portfolioProjects.map((project: any, projectIndex) => (
