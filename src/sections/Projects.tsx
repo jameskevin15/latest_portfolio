@@ -9,6 +9,7 @@ import Image from "next/image";
 import checkCircleIcon from "@/assets/icons/check-circle.svg";
 import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg";
 import Link from "next/link";
+import sysmgmt from "@/assets/images/sysmgmt-6.png";
 
 const portfolioProjects = [
   {
@@ -59,18 +60,20 @@ const portfolioProjects = [
     link: "https://jamili15.github.io/Landing-Page/",
     image: newPortfolio,
   },
-    {
-    company: "Rameses Systems Inc",
-    year: "2023-2026",
-    title: "Sysmgmt",
-    results: [
-      { title: "Enhanced user experience by 40%" },
-      { title: "Improved site speed by 50%" },
-      { title: "Increased mobile traffic by 35%" },
-    ],
-    link: "https://jamili15.github.io/Landing-Page/",
-    image: newPortfolio,
-  },
+{
+  company: "Rameses Systems Inc",
+  year: "2023-2026",
+  title: "Frontend / Web Developer",
+  results: [
+    { title: "Developed dynamic web systems with workflows and custom editors" },
+    { title: "Enhanced user experience by 40%" },
+    { title: "Improved site speed by 50%" },
+    { title: "Increased mobile traffic by 35%" }
+  ],
+  link: "https://jamili15.github.io/Landing-Page/",
+  image: sysmgmt,
+}
+
 ];
 
 export const ProjectsSection = ({ id = "mywork" }: { id?: string }) => {

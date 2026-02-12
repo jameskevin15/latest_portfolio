@@ -10,22 +10,68 @@ import { Fragment } from "react";
 import { getData } from "@/_actions/getData";
 
 export const TestimonialsSection = async () => {
-  const testimonial = await getData();
+  // const testimonial = await getData();
 
-  console.log("Testimonials", testimonial);
 
-  const testimonials = testimonial.map((testimony: any, index: number) => ({
-    name: testimony.name,
-    position: testimony.position,
-    text: testimony.text,
-    avatar: [
-      memojiAvatar1,
-      memojiAvatar2,
-      memojiAvatar3,
-      memojiAvatar4,
-      memojiAvatar5,
-    ][index % 5],
-  }));
+  const dataTestimonials = [
+    {
+      _id: {
+        $oid: "66d552643bb7a97461924ccb",
+      },
+      name: "Person 2",
+      position: "Head of Design @ GreenLeaf",
+      text: "Working with James was a pleasure. His expertise in frontend development brought our designs to life in a way we never imagined. The website has exceeded our expectations.",
+      avatar: null,
+    },
+    {
+      _id: {
+        $oid: "66d553453bb7a97461924cce",
+      },
+      name: "Person 5",
+      position: "Director of IT @ MegaCorp",
+      text: "James's work on our website has been nothing short of exceptional. He's a talented developer who is also a great communicator. We highly recommend him.",
+    },
+    {
+      _id: {
+        $oid: "66d552de3bb7a97461924ccd",
+      },
+      name: "Person 4",
+      position: "Product Manager @ GlobalTech",
+      text: "James is a true frontend wizard. He took our complex product and transformed it into an intuitive and engaging user interface. We're already seeing positive feedback from our customers.",
+    },
+    {
+      _id: {
+        $oid: "66d551f43bb7a97461924cc8",
+      },
+      name: "Person 1",
+      position: "Marketing Manager @ TechStartups",
+      text: "James was instrumental in transforming our website into a powerful marketing tool. His attention to detail and ability to understand our brand is exceptional. We're thrilled with the results!",
+      avatar: null,
+    },
+    {
+      _id: {
+        $oid: "66d552bb3bb7a97461924ccc",
+      },
+      name: "Person 3",
+      position: "CEO @ InnovateCo",
+      text: "James's ability to create seamless user experiences is unmatched. Our website has seen a significant increase in conversions since launching the new design. We couldn't be happier.",
+    },
+  ];
+
+  const testimonials = dataTestimonials.map(
+    (testimony: any, index: number) => ({
+      name: testimony.name,
+      position: testimony.position,
+      text: testimony.text,
+      avatar: [
+        memojiAvatar1,
+        memojiAvatar2,
+        memojiAvatar3,
+        memojiAvatar4,
+        memojiAvatar5,
+      ][index % 5],
+    }),
+  );
   return (
     <div className="py-16 lg:py-24">
       <div className=" container">
@@ -79,4 +125,3 @@ export const TestimonialsSection = async () => {
     </div>
   );
 };
-
