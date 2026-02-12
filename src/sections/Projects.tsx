@@ -20,7 +20,7 @@ const portfolioProjects = [
       { title: "Improved site speed by 50%" },
       { title: "Increased mobile traffic by 35%" },
     ],
-    link: "https://jamili15.github.io/Animated-Porfolio/",
+    link: "https://jamesportfolio-odevb6b9u-james-kevins-projects-01b5bdc6.vercel.app/",
     image: animatedPortfolio,
   },
   {
@@ -51,6 +51,18 @@ const portfolioProjects = [
     company: "Example",
     year: "2024",
     title: "My New Portfolio",
+    results: [
+      { title: "Enhanced user experience by 40%" },
+      { title: "Improved site speed by 50%" },
+      { title: "Increased mobile traffic by 35%" },
+    ],
+    link: "https://jamili15.github.io/Landing-Page/",
+    image: newPortfolio,
+  },
+    {
+    company: "Rameses Systems Inc",
+    year: "2023-2026",
+    title: "Sysmgmt",
     results: [
       { title: "Enhanced user experience by 40%" },
       { title: "Improved site speed by 50%" },

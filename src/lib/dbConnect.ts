@@ -1,15 +1,28 @@
-import { PrismaClient } from "@prisma/client";
+import { MongoClient } from 'mongodb';
 
-const prismaClientSingleton = () => {
-  return new PrismaClient();
-};
+if (!process.env.DATABASE_URL) {
+  throw new Error('Invalid/Missing environment variable: "DATABASE_URL"');
+}
 
-declare const globalThis: {
-  prismaGlobal: ReturnType<typeof prismaClientSingleton>;
-} & typeof global;
+const uri = process.env.DATABASE_URL;
+const options = {};
 
-const prisma = globalThis.prismaGlobal ?? prismaClientSingleton();
+let client: MongoClient;
+let clientPromise: Promise<MongoClient>;
 
-export default prisma;
+if (process.env.NODE_ENV === 'development') {
+  let globalWithMongo = global as typeof global & {
+    _mongoClientPromise?: Promise<MongoClient>;
+  };
 
-if (process.env.NODE_ENV !== "production") globalThis.prismaGlobal = prisma;
+  if (!globalWithMongo._mongoClientPromise) {
+    client = new MongoClient(uri, options);
+    globalWithMongo._mongoClientPromise = client.connect();
+  }
+  clientPromise = globalWithMongo._mongoClientPromise;
+} else {
+  client = new MongoClient(uri, options);
+  clientPromise = client.connect();
+}
+
+export default clientPromise;

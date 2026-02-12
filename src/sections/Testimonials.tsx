@@ -7,14 +7,14 @@ import SectionHeader from "@/components/SectionHeader";
 import Image from "next/image";
 import Card from "@/components/Card";
 import { Fragment } from "react";
-import prisma from "@/lib/dbConnect";
+import { getData } from "@/_actions/getData";
 
 export const TestimonialsSection = async () => {
-  const testimonial = await prisma.testimonials.findMany();
+  const testimonial = await getData();
 
   console.log("Testimonials", testimonial);
 
-  const testimonials = testimonial.map((testimony, index) => ({
+  const testimonials = testimonial.map((testimony: any, index: number) => ({
     name: testimony.name,
     position: testimony.position,
     text: testimony.text,
@@ -79,3 +79,4 @@ export const TestimonialsSection = async () => {
     </div>
   );
 };
+

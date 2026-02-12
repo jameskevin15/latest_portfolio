@@ -198,10 +198,18 @@ export const AboutSection = () => {
               </div>
             </Card>
             <Card className="h-[320px] p-0 relative md:col-span-2 lg:col-span-1">
-              <Image
+              {/* <Image
                 src={mapImage}
                 alt="map"
                 className="h-full w-full object-cover object-left-top"
+              /> */}
+          
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15689.899877238537!2d124.03072385000002!3d10.541955900000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sph!4v1770524257214!5m2!1sen!2sph"
+                className="absolute inset-0 w-full h-full border-0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Location Map"
               />
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-20 rounded-full after:content-[''] after:absolute after:inset-0 after:outline after:outline-2 after:-outline-offset-2 after:rounded-full after:outline-gray-950/30">
                 <div className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-300 to-sky-400 -z-20 animate-ping [animation-duration:2s]"></div>
